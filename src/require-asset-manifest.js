@@ -4,7 +4,7 @@ const AssetProcessor = require('./asset-processor');
 const AssetWriter = require('./asset-writer');
 const _ = require('lodash');
 
-module.exports = class AssetManifest {
+module.exports = class RequireAssetManifest {
 
     constructor (config) {
         this.config = Configuration.fromFile(config);
@@ -13,8 +13,6 @@ module.exports = class AssetManifest {
     }
 
     addProcessor(processor) {
-
-
         this.assetProcessor.add(processor);
     }
 

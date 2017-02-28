@@ -1,4 +1,4 @@
-let AssetManifest = require('../src/asset-manifest');
+let RequireAssetManifest = require('../src/require-asset-manifest');
 
-let assetManifest = new AssetManifest('./test/asset-manifest.config.json');
+let assetManifest = new RequireAssetManifest('./test/asset-manifest.config.json');
 assetManifest.run();

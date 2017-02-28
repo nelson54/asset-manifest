@@ -2,6 +2,7 @@
   "name": "require-asset-manifest",
   "version": "0.0.0",
   "private": false,
+  "main": "./src/asset-manifest.js",
   "scripts": {
     "start": "node ./bin/www"
   },
