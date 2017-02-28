@@ -1,0 +1,7 @@
+{
+  "generatedPath": ".generated/",
+  "generatedFile": "manifest-loader.js",
+  "configFileName": "asset-manifest.config.json",
+  "manifest": "./test/manifest.json",
+  "assetRoot": "../dist/assets/"
+}
