@@ -1,8 +1,8 @@
 const BaseProcessor = require('./base-processor');
 
-module.exports = class TextureProcessor extends BaseProcessor {
-    constructor (config){
-        super(config);
+module.exports = class TextureProcessor {
+    constructor (){
+
     }
 
     process (asset){

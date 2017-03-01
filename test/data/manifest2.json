@@ -1,0 +1,16 @@
+{
+  "assets": [
+    {
+      "type" : "audio",
+      "name" : "file1",
+      "extensions" : ["mp3", "ogg"],
+      "targets" : ["epa-s001"]
+    },
+    {
+      "type" : "audio",
+      "name" : "file2",
+      "extensions" : ["mp3", "ogg"],
+      "targets" : ["epa-s001"]
+    }
+  ]
+}

@@ -3,10 +3,9 @@ const path = require('path');
 
 module.exports = class Manifest {
 
-    static create(config) {
-        let path = config.getManifestPath();
-
-        let contents = fs.readFileSync(path);
+    static create(config, manifest) {
+        let manifestPath = path.join(config.getPackageRoot(), manifest);
+        let contents = fs.readFileSync(manifestPath);
         let json = JSON.parse(contents);
         return new Manifest(json, config);
     }

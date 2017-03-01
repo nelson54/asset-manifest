@@ -4,7 +4,7 @@ const AssetProcessor = require('./asset-processor');
 const AssetWriter = require('./asset-writer');
 const _ = require('lodash');
 
-module.exports = class RequireAssetManifest {
+class RequireAssetManifest {
 
     constructor (config) {
         this.config = Configuration.fromFile(config);
@@ -16,8 +16,19 @@ module.exports = class RequireAssetManifest {
         this.assetProcessor.add(processor);
     }
 
-    run() {
-        let manifest = Manifest.create(this.config);
+    run(paths) {
+        if (_.isArray(paths)) {
+            paths.forEach(
+                (path) => this.manifest(this.config, path))
+        } else {
+            this.manifest(paths);
+        }
+
+        this.assetWriter.write();
+    }
+
+    manifest(path) {
+        let manifest = Manifest.create(this.config, path);
 
         manifest.apply((asset) => {
             this.assetProcessor.process(asset)
@@ -26,8 +37,7 @@ module.exports = class RequireAssetManifest {
         manifest.apply((asset) => {
             this.assetWriter.add(asset)
         });
-
-        this.assetWriter.write();
     }
+}
 
-};
+module.exports = RequireAssetManifest;

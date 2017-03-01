@@ -1,6 +1,6 @@
 const _ = require('lodash');
 const defaults = require('../defaults');
-const packpath = require('packpath');
+const packpath = require('./packpath');
 const Promise = require('bluebird');
 const fs = require('fs');
 const path = require('path');
@@ -14,7 +14,8 @@ module.exports = class Configuration {
     }
 
     static fromFile(configPath) {
-        let packageRoot = packpath.self();
+        configPath = configPath || defaults.configFileName;
+        let packageRoot = packpath.parent();
         configPath = path.join(packageRoot, configPath);
 
         let stat = fs.statSync(configPath);
@@ -51,10 +52,6 @@ module.exports = class Configuration {
 
     getGeneratedFile() {
         return this.config.generatedFile;
-    }
-
-    getManifestPath() {
-        return path.join(this.config.packageRoot, this.config.manifest)
     }
 
     getAssetRoot() {
