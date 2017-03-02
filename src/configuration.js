@@ -4,6 +4,7 @@ const packpath = require('./packpath');
 const Promise = require('bluebird');
 const fs = require('fs');
 const path = require('path');
+const findConfig = require('find-config');
 
 module.exports = class Configuration {
 
@@ -16,7 +17,7 @@ module.exports = class Configuration {
     static fromFile(configPath) {
         configPath = configPath || defaults.configFileName;
         let packageRoot = packpath.parent();
-        configPath = path.join(packageRoot, configPath);
+        configPath = findConfig(configPath);
 
         let stat = fs.statSync(configPath);
 

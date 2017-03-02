@@ -3,7 +3,7 @@ const path = require('path');
 const fs = require('fs');
 
 let buildPath = (asset) => {
-    let requirePath = path.join(asset.path, `${asset.name}.${asset.extensions[0]}`)
+    let requirePath = path.join(asset.path, asset.name)
         .replace(/\\/g, '/');
     return `require('${requirePath}');`;
 };
@@ -13,7 +13,7 @@ module.exports = class AssetWriter {
         this.config = config;
         this.paths = [];
 
-        this.generatedFolder = path.join(config.getPackageRoot(), this.config.getGeneratedPath());
+        this.generatedFolder = path.join(process.cwd(), this.config.getGeneratedPath());
         this.generatedFilePath = path.join(this.generatedFolder, this.config.getGeneratedFile());
     }
 

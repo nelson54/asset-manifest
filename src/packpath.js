@@ -20,7 +20,6 @@ function packageFind(paths) {
 
 function findParentPaths(selfModule) {
     while(selfModule.id != '.') {
-        console.log('Looking at' + selfModule.id)
         selfModule = selfModule.parent;
     }
     return selfModule.paths;
@@ -35,12 +34,8 @@ module.exports.self = function() {
 
 module.exports.parent = function() {
     if (selfModule.parent) {
-        console.dir(selfModule.id);
-        console.dir(selfModule.paths);
-        console.dir(selfModule.id);
-        console.dir(findParentPaths(selfModule));
 
-        return packageFind(selfModule.parent.paths);
+        return findParentPaths(selfModule)[0];
     } else
         return null
 };
