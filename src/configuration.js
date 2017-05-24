@@ -1,3 +1,5 @@
+"use strict";
+
 const _ = require('lodash');
 const defaults = require('../defaults');
 const packpath = require('./packpath');

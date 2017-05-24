@@ -1,3 +1,4 @@
+"use strict";
 const Configuration = require('./configuration');
 const Manifest = require('./manifest');
 const AssetProcessor = require('./asset-processor');
@@ -19,7 +20,7 @@ class RequireAssetManifest {
     run(paths) {
         if (_.isArray(paths)) {
             paths.forEach(
-                (path) => this.manifest(this.config, path))
+                (path) => this.manifest(path))
         } else {
             this.manifest(paths);
         }

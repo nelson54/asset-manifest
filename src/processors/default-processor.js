@@ -1,3 +1,4 @@
+"use strict";
 const BaseProcessor = require('./base-processor');
 
 module.exports = class DefaultProcessor extends BaseProcessor {

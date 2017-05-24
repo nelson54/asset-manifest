@@ -1,3 +1,5 @@
+"use strict";
+
 const BaseProcessor = require('./base-processor');
 
 module.exports = class ImageProcessor extends BaseProcessor {

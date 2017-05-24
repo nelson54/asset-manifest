@@ -1,3 +1,4 @@
+"use strict";
 module.exports = class BaseProcessor {
     constructor (config){
         this.config = config;

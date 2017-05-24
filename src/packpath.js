@@ -1,4 +1,6 @@
-var fs = require('fs')
+"use strict";
+
+let fs = require('fs')
     , path = require('path')
     , selfModule = module.parent;
 
@@ -9,8 +11,8 @@ if (typeof fs.existsSync === 'undefined')
 function packageFind(paths) {
     if (!paths) return null;
 
-    for (var i = 0; i < paths.length; ++i){
-        var dir = path.dirname(paths[i]);
+    for (let i = 0; i < paths.length; ++i){
+        let dir = path.dirname(paths[i]);
         if (fs.existsSync(path.join(dir, 'package.json')))
             return dir;
     }

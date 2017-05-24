@@ -1,3 +1,5 @@
+"use strict";
+
 let DefaultProcessor = require('./processors/default-processor');
 
 module.exports = class AssetProcessor {
