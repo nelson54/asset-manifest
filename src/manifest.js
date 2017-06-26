@@ -11,6 +11,7 @@ function processAssets(manifest) {
             let copy = _.clone(asset);
             delete copy.extensions;
             copy.name += `.${extension}`;
+            copy.extension = extension;
             assets.push(copy);
         })
     })
