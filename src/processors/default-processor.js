@@ -7,7 +7,6 @@ module.exports = class DefaultProcessor extends BaseProcessor {
     }
 
     process (asset){
-        asset.write = true;
         asset.path = this.config.getAssetRoot();
     }
 };

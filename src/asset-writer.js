@@ -20,13 +20,12 @@ module.exports = class AssetWriter {
     }
 
     add(asset) {
-        if(asset.write) {
+        if(!asset.ignore) {
             this.paths.push(buildPath(asset));
         }
     }
 
     prepareForWrite() {
-
         if(!this.outputDirectoryExists()) {
             fs.mkdirSync(this.generatedFolder);
         }
@@ -61,6 +60,7 @@ module.exports = class AssetWriter {
     }
 
     toString() {
-        return this.paths.join('\n');
+        return this.paths
+            .join('\n');
     }
 };
